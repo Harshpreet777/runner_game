@@ -2,9 +2,10 @@ import 'package:flame/events.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:game_demo/constants/image_constant.dart';
 import 'package:game_demo/screens/background.dart';
 import 'package:game_demo/screens/dino.dart';
-import 'package:game_demo/screens/enemy_managaer.dart';
+import 'package:game_demo/screens/enemy_manager.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 
@@ -17,14 +18,11 @@ class EndlessRunner extends FlameGame with TapDetector, HasCollisionDetection {
   EndlessRunner({super.camera});
 
   static const _imageAssets = [
-    'dino.png',
-    'dino_blue.png',
-    'bat.png',
-    'pig.png',
-    'rhino.png',
+    ImageConstants.dino,
+    ImageConstants.hyena,
+    ImageConstants.vulture,
+    ImageConstants.scorpio
   ];
-
- 
 
   late Dino _dino;
   late PlayerData playerData;
@@ -39,18 +37,15 @@ class EndlessRunner extends FlameGame with TapDetector, HasCollisionDetection {
 
     playerData = await _readPlayerData();
 
-
     await images.loadAll(_imageAssets);
 
     camera.viewfinder.position = camera.viewport.virtualSize * 0.5;
-
-    
 
     camera.backdrop.add(BackGroundScreen(speed: 100));
   }
 
   void startGamePlay() {
-    _dino = Dino(images.fromCache('dino_blue.png'), playerData);
+    _dino = Dino(images.fromCache(ImageConstants.dino), playerData);
     _enemyManager = EnemyManager();
 
     world.add(_dino);
@@ -100,7 +95,6 @@ class EndlessRunner extends FlameGame with TapDetector, HasCollisionDetection {
     return playerDataBox.get('DinoRun.PlayerData')!;
   }
 
-  
   @override
   void lifecycleStateChange(AppLifecycleState state) {
     switch (state) {

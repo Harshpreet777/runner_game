@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:game_demo/constants/image_constant.dart';
 import 'package:game_demo/screens/endless_runner.dart';
 import 'package:game_demo/screens/enemy.dart';
 
@@ -46,26 +47,26 @@ class EnemyManager extends Component with HasGameReference<EndlessRunner> {
     if (_data.isEmpty) {
       _data.addAll([
         EnemyData(
-          image: game.images.fromCache('pig.png'),
-          nFrames: 16,
+          image: game.images.fromCache(ImageConstants.scorpio),
+          nFrames: 4,
           stepTime: 0.1,
-          textureSize: Vector2(36, 30),
+          textureSize: Vector2(48,48),
           speedX: 80,
           canFly: false,
         ),
         EnemyData(
-          image: game.images.fromCache('bat.png'),
-          nFrames: 7,
+          image: game.images.fromCache(ImageConstants.vulture),
+          nFrames: 4,
           stepTime: 0.1,
-          textureSize: Vector2(46, 30),
+          textureSize: Vector2(48, 48),
           speedX: 100,
           canFly: true,
         ),
         EnemyData(
-          image: game.images.fromCache('rhino.png'),
+          image: game.images.fromCache(ImageConstants.hyena),
           nFrames: 6,
           stepTime: 0.09,
-          textureSize: Vector2(52, 34),
+          textureSize: Vector2(48, 48),
           speedX: 150,
           canFly: false,
         ),

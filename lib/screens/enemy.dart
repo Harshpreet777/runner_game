@@ -39,15 +39,15 @@ class Enemy extends SpriteAnimationComponent
     if (position.x < -enemyData.textureSize.x) {
       removeFromParent();
       if (game.playerData.lives == 5) {
-        game.playerData.currentScore += 116;
+        game.playerData.currentScore += 150;
       } else if (game.playerData.lives == 4) {
-        game.playerData.currentScore += 213;
+        game.playerData.currentScore += 300;
       } else if (game.playerData.lives == 3) {
-        game.playerData.currentScore += 347;
+        game.playerData.currentScore += 450;
       } else if (game.playerData.lives == 2) {
-        game.playerData.currentScore += 513;
+        game.playerData.currentScore += 600;
       } else if (game.playerData.lives == 1) {
-        game.playerData.currentScore += 1347;
+        game.playerData.currentScore += 750;
       }
     }
 
