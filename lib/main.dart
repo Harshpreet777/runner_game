@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flame/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:game_demo/screens/endless_runner.dart';
@@ -23,6 +25,7 @@ Future<void> main() async {
 Future<void> initHive() async {
   if (!kIsWeb) {
     final dir = await getApplicationDocumentsDirectory();
+    log(dir.path);
     Hive.init(dir.path);
   }
 
